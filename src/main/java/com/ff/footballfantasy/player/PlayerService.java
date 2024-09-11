@@ -1,5 +1,6 @@
 package com.ff.footballfantasy.player;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -51,5 +52,8 @@ public class PlayerService {
         return null;
     }
 
-
+    @Transactional
+    public void deletePlayer(String playerName){
+        playerRepository.deletePlayer(playerName);
+    }
 }
