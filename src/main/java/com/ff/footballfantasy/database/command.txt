@@ -1,0 +1,11 @@
+CREATE TABLE player_stats (
+player_name VARCHAR(100),
+team VARCHAR(50),
+games_played INTEGER,
+games_subbed INTEGER,
+minutes_played INTEGER,
+goals INTEGER,
+assists INTEGER,
+shots INTEGER,
+shots_on_target INTEGER
+);
