@@ -9,8 +9,8 @@ import jakarta.persistence.Table;
 @Table(name="player_stats")
 public class Player {
     @Id
-    @Column(name = "name", unique = true)
-    private String player_name;
+    @Column(name = "player_name")
+    private String name;
     private String team;
     private Integer games_played;
     private Integer games_subbed;
@@ -23,8 +23,8 @@ public class Player {
     public Player() {
     }
 
-    public Player(String player_name, String team, Integer games_played, Integer games_subbed, Integer minutes_played, Integer goals, Integer assists, Integer shots, Integer shots_on_target) {
-        this.player_name = player_name;
+    public Player(String name, String team, Integer games_played, Integer games_subbed, Integer minutes_played, Integer goals, Integer assists, Integer shots, Integer shots_on_target) {
+        this.name = name;
         this.team = team;
         this.games_played = games_played;
         this.games_subbed = games_subbed;
@@ -35,12 +35,12 @@ public class Player {
         this.shots_on_target = shots_on_target;
     }
 
-    public Player(String player_name) {
-        this.player_name = player_name;
+    public Player(String name) {
+        this.name = name;
     }
 
-    public String getPlayer_name() {
-        return player_name;
+    public String getName() {
+        return name;
     }
 
     public String getTeam() {
@@ -75,8 +75,8 @@ public class Player {
         return shots_on_target;
     }
 
-    public void setPlayer_name(String player_name) {
-        this.player_name = player_name;
+    public void setName(String player_name) {
+        this.name = player_name;
     }
 
     public void setTeam(String team) {

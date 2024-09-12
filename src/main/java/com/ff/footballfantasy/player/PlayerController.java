@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(path = "app/player")
+@RequestMapping(path = "api/player")
 public class PlayerController {
     private final PlayerService playerService;
 
@@ -53,5 +53,10 @@ public class PlayerController {
         }
     }
 
+    @DeleteMapping("/{name}")
+    public ResponseEntity<String> deletePlayer(@PathVariable String name){
+        playerService.deletePlayer(name);
+        return new ResponseEntity<>("Player deleted", HttpStatus.OK);
+    }
 
 }

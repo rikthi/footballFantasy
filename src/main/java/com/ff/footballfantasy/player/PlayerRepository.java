@@ -5,8 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface PlayerRepository extends JpaRepository<Player, String> {
-    void deletePlayer(String name);
-    Optional<Player> findPlayer(String name);
+    void deleteByName(String player_name);
+    Optional<Player> findByName(String player_name);
 
 
 }

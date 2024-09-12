@@ -22,7 +22,7 @@ public class PlayerService {
     }
 
     public List<Player> getPlayersByName(String searchText){
-        return playerRepository.findAll().stream().filter(player -> player.getPlayer_name().toLowerCase().contains(searchText.toLowerCase())).collect(Collectors.toList());
+        return playerRepository.findAll().stream().filter(player -> player.getName().toLowerCase().contains(searchText.toLowerCase())).collect(Collectors.toList());
     }
 
     public List<Player> getPlayerByTeam(String teamName){
@@ -35,7 +35,7 @@ public class PlayerService {
     }
 
     public Player updatePlayer(Player editedPlayer){
-        Optional<Player> currentPlayer = playerRepository.findPlayer(editedPlayer.getPlayer_name());
+        Optional<Player> currentPlayer = playerRepository.findByName(editedPlayer.getName());
         if (currentPlayer.isPresent()){
             Player playerToUpdate = currentPlayer.get();
             playerToUpdate.setTeam(editedPlayer.getTeam());
@@ -54,6 +54,6 @@ public class PlayerService {
 
     @Transactional
     public void deletePlayer(String playerName){
-        playerRepository.deletePlayer(playerName);
+        playerRepository.deleteByName(playerName);
     }
 }
